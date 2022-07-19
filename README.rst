@@ -80,7 +80,7 @@ Contribution are welcome of course! For more information and how to setup, see
 
 Links
 -----
-* `rfc5545 <http://tools.ietf.org/html/rfc5545>`_
+* `rfc5545 <https://datatracker.ietf.org/doc/html/rfc5545>`_
 * `Vulgarised RFC <http://www.kanzaki.com/docs/ical/>`_
 
 .. image:: http://i.imgur.com/KnSQg48.jpg
