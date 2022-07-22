@@ -61,7 +61,14 @@ class PersonAttrs:
 
 
 class Person(PersonAttrs):
-    """Abstract class for Attendee and Organizer."""
+    """Abstract class for Attendee and Organizer.
+    
+    Args:
+        email (str): User email.
+
+    Returns:
+        Person object.
+    """
 
     NAME = "ABSTRACT-PERSON"
 
@@ -80,7 +87,14 @@ class Person(PersonAttrs):
 
 
 class Organizer(Person):
-    """Organizer of an event or todo."""
+    """Organizer of an event or todo.
+
+    Args:
+        email (str): User email
+
+    Returns:
+        Organizer object.
+    """
 
     NAME = "ORGANIZER"
 
@@ -88,19 +102,30 @@ class Organizer(Person):
 class Attendee(Person):
     """Attendee of an event or todo.
 
-    Possible values according to iCalendar standard, first value is default:
-        user_type = INDIVIDUAL | GROUP | RESOURCE | ROOM | UNKNOWN
-        member = Person
-        role = REQ-PARTICIPANT | CHAIR | OPT-PARTICIPANT | NON-PARTICIPANT
-        rsvp = False | True
-        delegated_to = Person
-        delegated_from = Person
+    The first of the possible values is the default.
 
-        Depending on the Component, different status are possible.
-        Event:
-        status = NEEDS-ACTION | ACCEPTED | DECLINED | TENTATIVE | DELEGATED
-        Todo:
-        status = NEEDS-ACTION | ACCEPTED | DECLINED | TENTATIVE | DELEGATED | COMPLETED | IN-PROCESS
+    Args:
+        email (str): User email
+        user_type (str): User type
+            INDIVIDUAL | GROUP | RESOURCE | ROOM | UNKNOWN
+        member (Person): Membership
+            None | Person
+        role (str): Participation role
+            REQ-PARTICIPANT | CHAIR | OPT-PARTICIPANT | NON-PARTICIPANT
+        status (str): Participation status
+            Event:
+            status = NEEDS-ACTION | ACCEPTED | DECLINED | TENTATIVE | DELEGATED
+            Todo:
+            status = NEEDS-ACTION | ACCEPTED | DECLINED | TENTATIVE | DELEGATED | COMPLETED | IN-PROCESS
+        rsvp (str): RSVP expectation
+            False | True
+        delegated_to (Person): Users to whom participation has been delegated to
+            None | Person
+        delegated_from (Person): Users that have delegated their participation to self
+            None | Person
+
+    Returns:
+        Attendee object.
     """
 
     NAME = "ATTENDEE"
